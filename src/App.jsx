@@ -1,7 +1,8 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import IdeaGrid from './components/IdeaGrid'
+import IdeaForm from './components/IdeaForm'
+import IdeaDetailPage from './pages/IdeaDetailPage'
 import useLocalStorage from './hooks/useLocalStorage'
-import IdeaGrid from './hooks/IdeaGrid'
-import IdeaForm from './hooks/IdeaForm'
-
 
 const SAMPLE_IDEAS = [
   { id: 1, title: "Hackathon App Idea", description: "Build a pitch preparation tool for Imagine Hack participants", date: "June 19, 2026" },
@@ -21,17 +22,25 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <header className="header">
-        <h1>IdeaVault</h1>
-        <p>Capture your ideas</p>
-      </header>
-      
-      <main className="main">
-        <IdeaForm onAddIdea={addIdea} />
-        <IdeaGrid ideas={ideas} onDelete={deleteIdea} />
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <div className="app">
+            <header className="header">
+              <h1>IdeaVault</h1>
+              <p>Capture your ideas</p>
+            </header>
+            <main className="main">
+              <IdeaForm onAddIdea={addIdea} />
+              <IdeaGrid ideas={ideas} onDelete={deleteIdea} />
+            </main>
+          </div>
+        } />
+        <Route path="/idea/:id" element={
+          <IdeaDetailPage ideas={ideas} onDelete={deleteIdea} />
+        } />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

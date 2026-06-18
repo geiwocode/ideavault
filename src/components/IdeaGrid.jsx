@@ -16,6 +16,7 @@ function IdeaGrid({ ideas, onDelete }) {
       {ideas.map((idea) => (
         <IdeaCard 
           key={idea.id}
+           id={idea.id}
           title={idea.title}
           description={idea.description}
           date={idea.date}
