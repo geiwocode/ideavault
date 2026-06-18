@@ -15,6 +15,10 @@ function App() {
     setIdeas([newIdea, ...ideas])
   }
 
+  const deleteIdea = (id) => {
+    setIdeas(ideas.filter((idea) => idea.id !== id))
+  }
+
   return (
     <div className="app">
       <header className="header">
@@ -24,7 +28,7 @@ function App() {
       
       <main className="main">
         <IdeaForm onAddIdea={addIdea} />
-        <IdeaGrid ideas={ideas} />
+        <IdeaGrid ideas={ideas} onDelete={deleteIdea} />
       </main>
     </div>
   )

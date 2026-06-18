@@ -1,4 +1,4 @@
-function IdeaCard({ title, description, date }) {
+function IdeaCard({ title, description, date, onDelete }) {
   return (
     <div className="card">
       <div className="card-body">
@@ -7,7 +7,7 @@ function IdeaCard({ title, description, date }) {
       </div>
       <div className="card-footer">
         <span className="date">{date}</span>
-        <button className="delete-btn">Delete</button>
+        <button className="delete-btn" onClick={onDelete}>Delete</button>
       </div>
     </div>
   )
