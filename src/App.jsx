@@ -1,6 +1,7 @@
-import { useState } from 'react'
-import IdeaGrid from './components/IdeaGrid'
-import IdeaForm from './components/IdeaForm'
+import useLocalStorage from './hooks/useLocalStorage'
+import IdeaGrid from './hooks/IdeaGrid'
+import IdeaForm from './hooks/IdeaForm'
+
 
 const SAMPLE_IDEAS = [
   { id: 1, title: "Hackathon App Idea", description: "Build a pitch preparation tool for Imagine Hack participants", date: "June 19, 2026" },
@@ -9,7 +10,7 @@ const SAMPLE_IDEAS = [
 ]
 
 function App() {
-  const [ideas, setIdeas] = useState(SAMPLE_IDEAS)
+  const [ideas, setIdeas] = useLocalStorage('ideas', SAMPLE_IDEAS)
 
   const addIdea = (newIdea) => {
     setIdeas([newIdea, ...ideas])
