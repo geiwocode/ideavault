@@ -36,6 +36,15 @@ function IdeaDetailPage({ ideas }) {
           </span>
         </div>
       </div>
+
+
+      <Link to={`/practice/${idea.id}`} style={{
+  display: 'inline-block', marginTop: '1.5rem', padding: '0.75rem 2rem',
+  background: '#4ade80', color: '#111827', borderRadius: '0.75rem',
+  fontWeight: 700, textDecoration: 'none', fontSize: '0.875rem'
+}}>
+  🎤 Practice Pitch
+</Link>
     </div>
   )
 }

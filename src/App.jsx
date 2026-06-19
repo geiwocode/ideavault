@@ -3,6 +3,7 @@ import IdeaGrid from './components/IdeaGrid'
 import IdeaForm from './components/IdeaForm'
 import IdeaDetailPage from './pages/IdeaDetailPage'
 import useLocalStorage from './hooks/useLocalStorage'
+import PracticePage from './pages/PracticePage'
 
 const SAMPLE_IDEAS = [
   { id: 1, title: "Hackathon App Idea", description: "Build a pitch preparation tool for Imagine Hack participants", date: "June 19, 2026" },
@@ -38,6 +39,9 @@ function App() {
         } />
         <Route path="/idea/:id" element={
           <IdeaDetailPage ideas={ideas} onDelete={deleteIdea} />
+        } />
+        <Route path="/practice/:id" element={
+          <PracticePage ideas={ideas} />
         } />
       </Routes>
     </BrowserRouter>
